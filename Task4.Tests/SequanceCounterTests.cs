@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -15,8 +16,10 @@ namespace Task4.Tests
         public void FibonacciNumbers_Check()
         {
             int n = 20;
-            foreach (int i in FibonacciNumbers(n))
+            foreach (BigInteger i in FibonacciNumbers(n))
+            {
                 Console.Write(i + " ");
+            }
         }
     }
 }

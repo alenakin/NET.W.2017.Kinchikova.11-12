@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Task2
 {
@@ -12,19 +12,7 @@ namespace Task2
     /// </summary>
     public class CustomTimer
     {
-        #region Properties
-        /// <summary>
-        /// Time in seconds.
-        /// </summary>
-        public int Time { get; }
-
-        /// <summary>
-        /// Event for time out.
-        /// </summary>
-        public event EventHandler<TimeOutEventArgs> TimeOut = delegate { };
-        #endregion
-
-        #region Public methods
+        #region Constructor
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -38,7 +26,22 @@ namespace Task2
 
             Time = time;
         }
+        #endregion
 
+        #region Properties
+        
+        /// <summary>
+        /// Event for time out.
+        /// </summary>
+        public event EventHandler<TimeOutEventArgs> TimeOut = delegate { };
+
+        /// <summary>
+        /// Time in seconds.
+        /// </summary>
+        public int Time { get; }
+        #endregion
+
+        #region Public methods
         /// <summary>
         /// Starts timer with time interval specified in constructor.
         /// </summary>
@@ -59,6 +62,7 @@ namespace Task2
                 throw new ArgumentOutOfRangeException("Time must be a positive number");
             }
 
+            Console.WriteLine(1);
             DateTime start = DateTime.Now;
             Thread.Sleep(time * 1000);
             DateTime end = DateTime.Now;
@@ -66,8 +70,8 @@ namespace Task2
         }
         #endregion
 
-        #region Private method
-        private void OnTimeOut(TimeOutEventArgs e)
+        #region Protected method
+        protected virtual void OnTimeOut(TimeOutEventArgs e)
         {
             EventHandler<TimeOutEventArgs> temp = TimeOut;
             temp?.Invoke(this, e);

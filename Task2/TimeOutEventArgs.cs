@@ -11,6 +11,21 @@ namespace Task2
     /// </summary>
     public class TimeOutEventArgs : EventArgs
     {
+        #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="time">Time spent.</param>
+        /// <param name="start">Start time.</param>
+        /// <param name="end">End time.</param>
+        public TimeOutEventArgs(int time, DateTime start, DateTime end)
+        {
+            this.Time = time;
+            this.StartTime = start;
+            this.EndTime = end;
+        }
+        #endregion
+
         #region Properties
         /// <summary>
         /// Time spent
@@ -26,21 +41,6 @@ namespace Task2
         /// End time.
         /// </summary>
         public DateTime EndTime { get; }
-        #endregion
-
-        #region Constructor
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="time">Time spent.</param>
-        /// <param name="start">Start time.</param>
-        /// <param name="end">End time.</param>
-        public TimeOutEventArgs(int time, DateTime start, DateTime end)
-        {
-            Time = time;
-            StartTime = start;
-            EndTime = end;
-        }
         #endregion
     }
 }

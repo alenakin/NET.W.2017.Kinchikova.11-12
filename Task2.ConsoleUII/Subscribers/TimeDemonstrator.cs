@@ -9,7 +9,7 @@ namespace Task2.ConsoleUII.Subscribers
     /// <summary>
     /// Class which provides information about duration of timer.
     /// </summary>
-    class TimeDemonstrator : TimeOutSubscriber
+    public class TimeDemonstrator : TimeOutSubscriber
     {
         #region Fields
         private static int numOfInstances = 0;
@@ -21,7 +21,7 @@ namespace Task2.ConsoleUII.Subscribers
         /// <summary>
         /// Constructor.
         /// </summary>
-        public TimeDemonstrator() => num = ++numOfInstances;
+        public TimeDemonstrator() => this.num = ++numOfInstances;
 
         /// <summary>
         /// Registers event.
@@ -31,9 +31,11 @@ namespace Task2.ConsoleUII.Subscribers
         public override void Register(CustomTimer timer)
         {
             if (timer == null)
+            {
                 throw new ArgumentNullException("timer can't be null");
+            }
 
-            timer.TimeOut += HandleTimeOutEvent;
+            timer.TimeOut += this.HandleTimeOutEvent;
         }
 
         /// <summary>
@@ -44,9 +46,11 @@ namespace Task2.ConsoleUII.Subscribers
         public override void Unregister(CustomTimer timer)
         {
             if (timer == null)
+            {
                 throw new ArgumentNullException("timer can't be null");
+            }
 
-            timer.TimeOut -= HandleTimeOutEvent;
+            timer.TimeOut -= this.HandleTimeOutEvent;
         }
         #endregion
 

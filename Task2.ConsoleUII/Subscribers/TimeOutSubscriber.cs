@@ -9,10 +9,8 @@ namespace Task2.ConsoleUII.Subscribers
     /// <summary>
     /// Abstract class for subscribers of time out event;
     /// </summary>
-    abstract class TimeOutSubscriber
+    public abstract class TimeOutSubscriber
     {
-        protected abstract void HandleTimeOutEvent(object obj, TimeOutEventArgs eventArgs);
-
         /// <summary>
         /// Registers event.
         /// </summary>
@@ -24,5 +22,7 @@ namespace Task2.ConsoleUII.Subscribers
         /// </summary>
         /// <param name="timer">Timer providing event</param>
         public abstract void Unregister(CustomTimer timer);
+
+        protected abstract void HandleTimeOutEvent(object obj, TimeOutEventArgs eventArgs);
     }
 }
